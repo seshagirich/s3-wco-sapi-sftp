@@ -1,0 +1,69 @@
+#%RAML 1.0
+title: wco-sapi-sftp
+
+
+
+/fileRead:
+  get:
+    queryParameters:
+      fileName:
+        type: string
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "message": "file read success"
+              }
+      
+/fileCreate:
+  post:
+    body:
+      application/json:
+        example: {
+                  "locationCode__c": "442",
+                  "customerid__c": null,
+                  "Id": null,
+                  "type": "eproducts__c",
+                  "Name": "a01WU00000XlkM9"
+                 }
+    responses:
+      200:
+        body:
+          application/json:
+            example: {
+                      "file": "102.json",
+                      "message": "file create success"
+                     }
+/fileMove:
+  get:
+    queryParameters:
+      fileName:
+        type: string
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            examples:
+                    {
+                      "message": "file move success"
+                    }
+
+/fileDelete:
+  get:
+    queryParameters:
+      fileName:
+        type: string
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            examples:
+                    {
+                      "message": "file delete success"
+                    }
+
